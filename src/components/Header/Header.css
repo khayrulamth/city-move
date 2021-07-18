@@ -1,0 +1,17 @@
+.header-link{
+    display: flex;
+    padding: 30px;
+    float: right;
+}
+a{
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 20px;
+}
+.logo{
+    text-transform: uppercase; 
+    font-weight: 700;
+    font-size: 30px;
+    padding-top: 30px;
+
+}
