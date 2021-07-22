@@ -1,0 +1,25 @@
+.App {
+    background-image: url(./Images/Bg.png);
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover !important;
+    position: absolute;
+    font-family: sans-serif;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

@@ -1,0 +1,44 @@
+.login-page{
+    height : 300px;
+    position: relative;
+    top: 50px;
+    margin: 30px auto 10px;
+    border: 1px solid lightgrey;
+    padding: 10px 30px;
+    overflow: hidden;
+    border-radius: 4px;
+    font-size: 14px;
+    min-width: 300px;
+    max-width: 450px;
+    font-family: sans-serif;
+}
+
+.reg-form{
+    margin: 10px auto;
+    height: 400px;
+}
+
+input{
+    padding: 5px;
+    margin: 5px 0 ;
+    width: 90%;
+    color : black;
+    border: none;
+    border-bottom: 1px solid rgb(93, 92, 92);
+    box-sizing: border-box;
+}
+input:focus{
+    border: none;
+}
+
+#submit{
+    background-color: rgb(2, 88, 62);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing:2px;
+}
+a{
+    color: rgb(2, 88, 62);
+    font-size: 16px;
+    text-decoration: none;
+}

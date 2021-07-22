@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Header/Header.css'
+import '../Header/Header.css';
 import './Home.css';
 import bike from '../../Images/bike.png';
 import bus from '../../Images/bus.png';
@@ -15,9 +15,10 @@ const Home = () => {
     for (let i = 0; i < vehicleSource.length; i++) {
         vehicleSource[i].name = vehicleName[i];
     }
+    //const newVehicle = [...vehecleSource, vehicleName];
 
     return (
-        <div className='home'>
+        <div className="home">
             {
                 vehicleSource.map((vehicle) => {
                     return <Vehicle vehicle={vehicle}></Vehicle>

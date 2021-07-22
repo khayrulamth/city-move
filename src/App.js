@@ -1,29 +1,24 @@
-import './App.css';
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  // Link,
+  Link,
   // useRouteMatch,
   // useParams
 } from "react-router-dom";
-import Home from './components/Home/Home';
-import Header from './components/Header/Header';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import Home from '../src/components/Home/Home';
+import Header from '../src/components/Header/Header';
 
 
 function App() {
   return (
-    <div className="container">
-      {/* <h1 style={{display: "inline", paddingTop: "30px"}}>CITY MOVE</h1> */}
+    <div className="App">
+      <Header></Header>
       <Router>
-        <Header></Header>
-        <Switch className='App-header'>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route exact path="/">
+        <Switch>
+          <Route path="/">
             <Home></Home>
           </Route>
         </Switch>
