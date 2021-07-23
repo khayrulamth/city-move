@@ -8,10 +8,10 @@ const Header = () => {
                 <h2>City Move</h2>
             </div>
             <nav>
-                <a href="/">Home</a>
-                <a href="/">Destination</a>
-                <a href="/">Blog</a>
-                <a href="/">Login</a>
+                <a href="/home">Home</a>
+                <a href="/destination">Destination</a>
+                <a href="/blog">Blog</a>
+                <a id='login-button' href="/login">Login</a>
             </nav>
         </div>
     );

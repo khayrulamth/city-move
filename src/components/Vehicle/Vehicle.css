@@ -13,7 +13,9 @@
 }
 
 #vehicle button{
-    margin: 30px 10px 10px;
+    position: relative;
+    bottom: -30px;
+    margin: 10px;
     padding: 10px 30px;
     border: 0;
     outline: none;
@@ -35,5 +37,11 @@
 }
 
 @media screen and (max-width: 720px){
-    
+    #vehicle{
+        width: 180px;
+        height: 180px;
+    }
+    #vehicle img{
+        width: 100px;
+    }
 }

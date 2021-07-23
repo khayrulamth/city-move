@@ -1,6 +1,6 @@
 .header{
     display: flex;
-    width: 100%;
+    width: 90%;
     margin: 10px 30px;
     padding: 5px 10px;
     position: absolute;
@@ -9,8 +9,9 @@
 nav{
     position: relative;
     width: 70%;
-    top: 30px;
-    left: 50%;
+    text-align: right;
+    margin-right: 20px;
+    top: 20px;
 }
 
 nav a{
@@ -21,16 +22,36 @@ nav a{
 
 .logo h2{
     text-transform: uppercase;
+    color: rgb(2, 1, 1);
+}
+
+#login-button{
+    background-color: rgb(29, 95, 95);
+    padding: 5px 15px;
+    color: white;
+    border-radius: 4px;
 }
 
 @media screen and (max-width:1000px) {
     nav{
-        left: 200px;
+        text-align: right;
+        justify-content: end;
     }
 }
 
 @media screen and (max-width:720px) {
+    .header{
+        text-align: center;
+        display:grid;
+        grid-template-columns: auto;
+    }
     nav{
-        left: 100px;
+        margin: -30px auto;
+        text-align: center;
+        justify-content: center;
+    }
+    .logo h2{
+        margin-top: -5px;
+
     }
 }
