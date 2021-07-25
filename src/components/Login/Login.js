@@ -4,15 +4,22 @@ import google from '../../Icons/google.png';
 import facebook from '../../Icons/facebook.png';
 import github from '../../Icons/github.png';
 import { handleCreateAccount, handleFbSignIn, handleGithubSignIn, handleGoogleSignIn, manageInitialize, signInWithEmailAndPassword } from './LoginManager';
+import { useContext } from 'react';
+import { useHistory, useLocation } from 'react-router';
+import { UserContext } from '../../App';
 
 manageInitialize();
-
 const Login = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    let history = useHistory();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+
     const [register, setRegister] = useState(false);
     const [newUser, setNewUser] = useState(false);
     const [user, setUser] = useState({
         isSignedIn: false,
-        name: '',
+        displayName: '',
         email: '',
         password: '',
         photo: '',
@@ -48,6 +55,8 @@ const Login = () => {
             handleCreateAccount(user.email, user.password)
                 .then((res) => {
                     setUser(res);
+                    setLoggedInUser(res);
+                    history.replace(from);
                     console.log('New User Found');
                 })
             console.log(user.email);
@@ -62,6 +71,8 @@ const Login = () => {
                 .then((res) => {
                     const newUserInfo = res;
                     setUser(newUserInfo);
+                    setLoggedInUser(newUserInfo);
+                    history.replace(from);
                     console.log('login successful');
                 })
                 .catch((err) => {
@@ -69,40 +80,45 @@ const Login = () => {
                 })
         }
         e.preventDefault();
-        console.log('clicked login');
     }
 
     const googleSignIn = () => {
         handleGoogleSignIn()
-        .then((res)=> {
-            setUser(res);
-            console.log('google');
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+            .then((res) => {
+                setUser(res);
+                setLoggedInUser(res);
+                history.replace(from);
+                console.log('google');
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     const fbSignIn = () => {
         handleFbSignIn()
-        .then((res)=> {
-            setUser(res);
-            console.log('fb');
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+            .then((res) => {
+                setUser(res);
+                setLoggedInUser(res);
+                history.replace(from);
+                console.log('fb');
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
-    const gitHubSignIn = ()=>{
+    const gitHubSignIn = () => {
         handleGithubSignIn()
-        .then((res)=> {
-            setUser(res);
-            console.log('Github');
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+            .then((res) => {
+                setUser(res);
+                setLoggedInUser(res);
+                history.replace(from);
+                console.log('Github');
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     return (
@@ -118,13 +134,13 @@ const Login = () => {
                 <div className="social-icons">
                     <img onClick={googleSignIn} src={google} alt="Google" />
                     <img onClick={fbSignIn} src={facebook} alt="Facebook" />
-                    <img onClick={gitHubSignIn}src={github} alt="Github" />
+                    <img onClick={gitHubSignIn} src={github} alt="Github" />
                 </div>
                 {
                     register ?
                         <form id="register" className="input-group">
                             <p>Create a new account:</p>
-                            <input onBlur={handleBlur} type="text" className='input-field' placeholder='Name' name="name" id="" required />
+                            <input onBlur={handleBlur} type="text" className='input-field' placeholder='Name' name="displayName" id="" required />
 
                             <input onBlur={handleBlur} type="email" className='input-field' placeholder='Email' name="email" id="" required />
 

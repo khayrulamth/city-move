@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import './Header.css';
 
 const Header = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
         <div className='header'>
             <div className="logo">
                 <h2>City Move</h2>
             </div>
             <nav>
-                <a href="/home">Home</a>
-                <a href="/destination">Destination</a>
-                <a href="/blog">Blog</a>
-                <a id='login-button' href="/login">Login</a>
+                <Link to="/home">Home</Link>
+                <Link to="/destination">Destination</Link>
+                <Link to="/blog">Blog</Link>
+                {
+                    loggedInUser.email ? <Link id='login-button' to="/profile">Profile</Link> : <Link id='login-button' to="/login">Login</Link>
+                }
             </nav>
         </div>
     );

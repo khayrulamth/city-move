@@ -1,0 +1,12 @@
+.profile{
+    position: relative;
+    text-align: center;
+    top: 100px;
+}
+
+.profile button{
+    padding: 5px 15px;
+    background : transparent;
+    cursor: pointer;
+    border: 1px solid rgb(13, 77, 55);
+}

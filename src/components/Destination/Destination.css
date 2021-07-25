@@ -1,0 +1,57 @@
+.destination{
+    position: relative;
+    text-align: center;
+    top: 160px;
+}
+
+.map-search{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.inputs{
+    position: relative;
+    margin-left : 20px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #f245;
+    background-color: lightgray;
+}
+
+.map{
+    position: relative;
+    height: 400px;
+    width: 500px;
+}
+
+.inputs>input, .inputs>label , .inputs>button{
+    margin: 10px 20px;
+    width: 70%;
+    padding: 5px 10px;
+}
+
+#top-label{
+    position: relative;
+    top: 5px;
+}
+
+
+@media screen and (max-width:720px){
+    .map-search{
+        grid-template-columns: auto ;
+    }
+    .map{
+        margin-top: 20px;
+        height: 250px;
+        width: 100%;
+    }
+    .inputs{
+        height: 250px;
+    }
+    .destination{
+        top: 100px;
+    }
+}

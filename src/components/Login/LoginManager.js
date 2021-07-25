@@ -9,6 +9,7 @@ export const manageInitialize = () => {
 export const handleCreateAccount = (email, password) => {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((res) => {
+            console.log(res.user);
             const { displayName, photoURL, email } = res.user;
             const signedInUser = {
                 isSignedIn: true,
