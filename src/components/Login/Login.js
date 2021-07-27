@@ -11,6 +11,7 @@ import { UserContext } from '../../App';
 manageInitialize();
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    console.log(loggedInUser);
     let history = useHistory();
     let location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
@@ -49,6 +50,8 @@ const Login = () => {
         }
     }
 
+
+
     const createAccount = (e) => {
         setNewUser(!newUser);
         if (newUser && user.email && user.password) {
@@ -64,7 +67,12 @@ const Login = () => {
         e.preventDefault();
         console.log('clicked');
     }
-
+    const userCall = (res) => {
+        setUser(res);
+        setLoggedInUser(res);
+        history.replace(from);
+        console.log('Github');
+    }
     const signIn = (e) => {
         if (user.email && user.password) {
             signInWithEmailAndPassword(user.email, user.password)
@@ -85,10 +93,7 @@ const Login = () => {
     const googleSignIn = () => {
         handleGoogleSignIn()
             .then((res) => {
-                setUser(res);
-                setLoggedInUser(res);
-                history.replace(from);
-                console.log('google');
+                userCall(res);
             })
             .catch((err) => {
                 console.log(err);
@@ -98,9 +103,7 @@ const Login = () => {
     const fbSignIn = () => {
         handleFbSignIn()
             .then((res) => {
-                setUser(res);
-                setLoggedInUser(res);
-                history.replace(from);
+                userCall(res);
                 console.log('fb');
             })
             .catch((err) => {
@@ -111,13 +114,12 @@ const Login = () => {
     const gitHubSignIn = () => {
         handleGithubSignIn()
             .then((res) => {
-                setUser(res);
-                setLoggedInUser(res);
-                history.replace(from);
+                userCall(res);
                 console.log('Github');
             })
             .catch((err) => {
                 console.log(err);
+                alert(err);
             })
     }
 
