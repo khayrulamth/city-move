@@ -1,10 +1,10 @@
 .App {
     background-image: url(./Images/Bg.png);
-    width: 100%;
-    height: 100%;
     background-position: center;
     background-size: cover !important;
     position: absolute;
+    min-height: 100vh;
+    width: 100vw;
     font-family: sans-serif;
   }
   
